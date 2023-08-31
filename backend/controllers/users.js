@@ -9,9 +9,9 @@ const pool = new Pool({
 });
 
 /// Récupérer toutes les données des utilisateurs
-const getAllUsers = (req, res) => {
+exports.getAllUsers = (req, res) => {
   // const query = 'SELECT * FROM utilisateur';
-  const query = 'SELECT * FROM utilisateurs'; // Assurez-vous que "utilisateur" est le nom de la table dans PostgreSQL
+  const query = 'SELECT * FROM users'; // Assurez-vous que "utilisateur" est le nom de la table dans PostgreSQL
   pool.query(query, (err, results) => {
     if (err) {
       console.error('Error retrieving users:', err);
@@ -20,8 +20,4 @@ const getAllUsers = (req, res) => {
     }
     res.json(results.rows);
   });
-};
-
-module.exports = {
-  getAllUsers,
 };

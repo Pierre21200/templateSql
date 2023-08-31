@@ -27,7 +27,7 @@ pool.connect((err, client, done) => {
   done();
 });
 
-app.get('/users', routes, (req, res) => {
+app.use('/', routes, (req, res) => {
   res.json({ message: 'Backend is running.' });
 });
 
